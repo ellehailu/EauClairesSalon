@@ -1,0 +1,20 @@
+@{
+    Layout = "_Layout";
+}
+
+@model EauClairesSalon.Models.Stylist;
+
+<div class="text-center">
+    <h1 class="display-4">Stylist List</h1>
+    <h4>Add a new stylist</h4>
+    <hr />
+
+    @using(Html.BeginForm()){
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name)<br>
+        @Html.LabelFor(model => model.Speciality)
+        @Html.TextBoxFor(model => model.Speciality)<br>
+
+        <input type="submit" value="Add stylist"/>
+    }
+</div>

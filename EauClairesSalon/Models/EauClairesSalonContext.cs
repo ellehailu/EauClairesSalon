@@ -6,6 +6,8 @@ namespace EauClairesSalon.Models
     {
         public DbSet<Client> Clients { get; set; }
 
+        public DbSet<Stylist> Stylists { get; set; }
+
         public EauClairesSalonContext(DbContextOptions options) : base(options) { }
     }
 }
