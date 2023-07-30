@@ -32,5 +32,19 @@ namespace EauClairesSalon.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Client client)
+        {
+            _db.Clients.Update(client);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
