@@ -10,6 +10,5 @@ public class Stylist
     public string Name { get; set; }
     public string Speciality { get; set; }
 
-    //connect clients
-    //public Client client { get; set; }
+    public List<Client> Clients { get; set; }
 }
