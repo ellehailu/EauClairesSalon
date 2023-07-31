@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using EauClairesSalon.Models;
+using HairSalon.Models;
 
-namespace EauClairesSalon
+namespace HairSalon
 {
     class Program
     {
@@ -13,7 +13,7 @@ namespace EauClairesSalon
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<EauClairesSalonContext>(
+            builder.Services.AddDbContext<HairSalonContext>(
                               dbContextOptions => dbContextOptions
                                 .UseMySql(
                                   builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]

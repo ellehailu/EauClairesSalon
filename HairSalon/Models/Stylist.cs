@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-namespace EauClairesSalon.Models
+namespace HairSalon.Models
 {
     public class Stylist
     {

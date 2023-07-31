@@ -2,7 +2,11 @@
     Layout = "_Layout";
 }
 
-@model EauClairesSalon.Models.Client;
+@{
+    Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist;
 
 @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
 
@@ -10,4 +14,4 @@
     <input type="submit" value="Delete" />
 }
 
-@Html.ActionLink("Back to main page", "Index", "Home")
+@Html.ActionLink("Back to list", "Index")

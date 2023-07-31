@@ -1,4 +1,4 @@
-using EauClairesSalon.Models;
+using HairSalon.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace ClientController.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly EauClairesSalonContext _db;
+        private readonly HairSalonContext _db;
 
-        public ClientController(EauClairesSalonContext db)
+        public ClientController(HairSalonContext db)
         {
             _db = db;
         }

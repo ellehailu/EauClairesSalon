@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using EauClairesSalon.Models;
+using HairSalon.Models;
 
-namespace EauClairesSalon.Controllers;
+namespace HairSalon.Controllers;
 
 public class HomeController : Controller
 {
