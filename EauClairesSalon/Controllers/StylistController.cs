@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using EauClairesSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EauClairesSalon.Controllers
 {
@@ -32,11 +33,25 @@ namespace EauClairesSalon.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult Details(int id)
         {
-            Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-            return View(thisClient);
+            Stylist thisStylist = _db.Stylists.Include(stylist => stylist.Clients).FirstOrDefault(stylist => stylist.StylistId == id);
+            return View(thisStylist);
+        }
 
+        public ActionResult Delete(int id)
+        {
+            Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+            return View(thisStylist);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Deleted(int id)
+        {
+            Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+            _db.Stylists.Remove(thisStylist);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

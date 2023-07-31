@@ -1,0 +1,14 @@
+@model EauClairesSalon.Models.Client;
+
+<h4>Client Description</h4>
+
+<hr />
+
+<h3>
+    @Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name)<br>
+</h3>
+
+<p>@Html.ActionLink("go back to list", "Index")</p>
+<p>@Html.ActionLink("Edit client information", "Edit", new { id = Model.ClientId })</p>
+
+<p>@Html.ActionLink("Delete client", "Delete", new { id = Model.ClientId })</p>

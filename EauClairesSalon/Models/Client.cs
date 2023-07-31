@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace EauClairesSalon.Models
 {
@@ -7,8 +9,8 @@ namespace EauClairesSalon.Models
     {
         public int ClientId { get; set; }
         public string Name { get; set; }
+        public int StylistId { get; set; }
 
-        //public StylistId { get; setl }
-        
+        public Stylist Stylist { get; set; }
     }
 }
