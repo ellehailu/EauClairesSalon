@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClientController.Controllers
 {
@@ -16,11 +17,12 @@ namespace ClientController.Controllers
             _db = db;
         }
 
-        public ActionResult Index()
-        {
+        //Recieving error when redirecting to this page
+        // public ActionResult Index()
+        // {
 
-            return View();
-        }
+        //     return View();
+        // }
 
         public ActionResult Create()
         {
@@ -33,12 +35,12 @@ namespace ClientController.Controllers
         {
             _db.Clients.Add(client);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Stylist");
         }
 
         public ActionResult Details(int id)
         {
-            Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+            Client thisClient = _db.Clients.Include(client => client.Stylist).FirstOrDefault(client => client.ClientId == id);
             return View(thisClient);
         }
 
@@ -46,7 +48,7 @@ namespace ClientController.Controllers
         {
             Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
             ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
-            return View(thisClient);
+            return View("Index", "Stylist");
         }
 
         [HttpPost]
@@ -54,7 +56,7 @@ namespace ClientController.Controllers
         {
             _db.Clients.Update(client);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Index", "Stylist");
         }
 
         public ActionResult Delete(int id)
@@ -69,7 +71,7 @@ namespace ClientController.Controllers
             Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
             _db.Clients.Remove(thisClient);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Index", "Stylist");
         }
 
     }

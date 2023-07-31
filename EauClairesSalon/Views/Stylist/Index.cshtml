@@ -14,14 +14,12 @@
     
 }
 
-<ul>
+
     @foreach (Stylist stylist in Model)
     {
-        <li>
-            @Html.ActionLink($"{stylist.Name}", "Details", new { id = stylist.StylistId })
-        </li>
+            @Html.ActionLink($"{stylist.Name}", "Details", new { id = stylist.StylistId })<br>
     }
-</ul>
+
 
 @if(Model.Count != 0){
 @Html.ActionLink("Add new client", "Create", "Client")<br>

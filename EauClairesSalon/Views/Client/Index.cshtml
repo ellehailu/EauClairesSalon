@@ -1,10 +1,11 @@
-
+@* not working: Error 500 *@
 @{
     Layout = "_Layout";
 }
 
 @using EauClairesSalon.Models
-@model List<EauClairesSalon.Models.Client>;
+@model List<EauClairesSalon.Models.Client>
+
 
 <div class="text-center">
   <h1 class="display-4">Client List</h1>
@@ -14,7 +15,11 @@
     <h3>You currently have no clients</h3>
 }
 
+<ul>
 @foreach (Client client in Model){
-    <p>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId}) | client.Stylist.Name</p>
+    <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId}) | client.Stylist.Name</li>
 }
+</ul>
+<p>@Html.ActionLink("Add new client", "Create", "Client")</p>
+
 </div>

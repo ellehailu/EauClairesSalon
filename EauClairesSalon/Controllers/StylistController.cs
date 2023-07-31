@@ -46,7 +46,7 @@ namespace EauClairesSalon.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult Deleted(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
             _db.Stylists.Remove(thisStylist);

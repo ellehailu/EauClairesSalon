@@ -1,18 +1,15 @@
-@{
-    Layout = "_Layout";
-} 
-
-@model EauClairesSalon.Models.Client; 
+@model EauClairesSalon.Models.Client;
 
 <h4>Add a new client</h4>
 
-@using (Html.BeginForm()){
+@using (Html.BeginForm())
+{
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)<br>
-    
-    @Html.LabelFor(model => model.Stylist)
+   
+    @Html.LabelFor(model  => model.Stylist)
     @Html.DropDownList("StylistId")
-    <input type="submit" value="Add new client" />
+    <input type="submit" value="Add client" />
 }
 
-<p>@Html.ActionLink("show all clients", "Index", "Stylist")</p>
+<p>@Html.ActionLink("show stylist list", "Index", "stylist")</p>
