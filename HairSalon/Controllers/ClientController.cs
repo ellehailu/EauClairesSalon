@@ -40,6 +40,10 @@ namespace ClientController.Controllers
         public ActionResult Details(int id)
         {
             Client thisClient = _db.Clients.Include(client => client.Stylist).FirstOrDefault(client => client.ClientId == id);
+            if (thisClient == null)
+            {
+                return NotFound();
+            }
             return View(thisClient);
         }
 
@@ -70,7 +74,7 @@ namespace ClientController.Controllers
             Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
             _db.Clients.Remove(thisClient);
             _db.SaveChanges();
-            return View("Index", "Stylist");
+            return RedirectToAction("Index", "Stylist");
         }
 
     }
