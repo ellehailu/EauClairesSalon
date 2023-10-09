@@ -17,12 +17,11 @@ namespace ClientController.Controllers
             _db = db;
         }
 
-        //Recieving error when redirecting to this page
-        // public ActionResult Index()
-        // {
-
-        //     return View();
-        // }
+        public ActionResult Index()
+        {
+            List<Client> model = _db.Clients.ToList();
+            return View(model);
+        }
 
         public ActionResult Create()
         {
@@ -48,7 +47,7 @@ namespace ClientController.Controllers
         {
             Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
             ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
-            return View("Index", "Stylist");
+            return View(thisClient);
         }
 
         [HttpPost]
@@ -56,7 +55,7 @@ namespace ClientController.Controllers
         {
             _db.Clients.Update(client);
             _db.SaveChanges();
-            return View("Index", "Stylist");
+            return RedirectToAction("Index", "Client");
         }
 
         public ActionResult Delete(int id)

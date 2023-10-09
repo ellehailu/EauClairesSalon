@@ -1,6 +1,6 @@
 #### By _**Elle Hailu**_
 
-#### _A web app for a bakery to keep track of vendors and orders_
+#### _A web app for a hair salon to keep track of stylists and customers_
 
 ## Technologies Used
 
@@ -10,9 +10,9 @@
 
 ## Description
 
-- A web application for a bakery that includes the following functionality:
+- A web application for a hair salon that includes the following functionality:
 
-  - The ability to add and remove vendors
+  - The ability to add and remove stylists
 
   - The abilty to add or remove orders for each vendor
 
