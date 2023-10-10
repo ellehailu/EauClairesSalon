@@ -1,8 +1,10 @@
 #### By _**Elle Hailu**_
 
-![EauClaire Salon Screenshot](./EauClaire.png)
+## Eau Claire's Hair Salon
 
 #### _A web app for a hair salon to keep track of stylists and customers_
+
+![EauClaire Salon Screenshot](./EauClaire.png)
 
 ## Technologies Used
 
